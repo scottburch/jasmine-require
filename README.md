@@ -39,7 +39,9 @@ The following code will return your stub when require is called.
     });
 
 NOTES:
+
 * I use these with jasmine running as a rake/CI task.  I have not tested it with jasmine running standalone.
+
 * The code uses Array.isArray() from ECMAScript 5.  Include a ES5 compatability library if you are testing using a browser that does not support ES5.
 
 
