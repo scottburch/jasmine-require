@@ -12,18 +12,31 @@ Loads modules for testing
 
 ## requireStubs(stubs)
 
-describe('my tests', function() {
+Creates stubs that will be returned from require that is in code that is being tested
 
-    stubs = {
-        someMod: function(){
-            return {// my module to return}
-        }
+Code to be tested
+
+    function(cb) {
+        require(['someMod'}, function(someMod) {
+            // do something
+            cb();
+        });
     }
 
-    beforeEach(function() {
-        requireStubs(stubs);
+
+The following code will return your stub when require is called.
+
+    describe('my tests', function() {
+        stubs = {
+            someMod: function(){
+                return {// my module to return}
+            }
+        }
+
+        beforeEach(function() {
+            requireStubs(stubs);
+        });
     });
-});
 
 NOTES:
 * I use these with jasmine running as a rake/CI task.  I have not tested it with jasmine running standalone.
