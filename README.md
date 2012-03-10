@@ -17,7 +17,7 @@ Creates stubs that will be returned from require that is in code that is being t
 Code to be tested
 
     function(cb) {
-        require(['someMod'}, function(someMod) {
+        require(['someMod'], function(someMod) {
             // do something
             cb();
         });
