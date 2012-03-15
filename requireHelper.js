@@ -5,7 +5,7 @@ function requireDependencies(deps, cb) {
         var done = false;
         runs(function () {
             require(deps, function () {
-                cb.apply(cb, arguments);
+                cb && cb.apply(cb, arguments);
                 done = true;
             });
         });
@@ -24,7 +24,7 @@ function requireStubs(stubs) {
             var retDeps = deps.map(function (dep) {
                 return stubs[dep.replace(/.*\//, '')];
             })
-            cb.apply(cb, retDeps);
+            cb && cb.apply(cb, retDeps);
         } else {
             return window.require.originalValue.apply(window.require, arguments);
         }
